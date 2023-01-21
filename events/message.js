@@ -8,7 +8,7 @@ const mentionRegex = RegExp(`^<@!?${client.user.id}>$`);
     if(message.content.match(mentionRegex)) {
 	return message.channel.send(`Hello ${message.author.username} im a bot for pinging a your project, if you can see command list use \`${config.prefix}help\` for more commands`)
     }
-	
+	if(!message.content.startsWith(config.prefix)) return;
   const [cmd, ...args] = message.content
 		.slice(config.prefix.length)
 		.trim()
